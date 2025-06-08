@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张沁丹六月演什么戏？</title>
+    <!-- 引入Leaflet地图库 -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        html, body, [class*="css"] {
+            font-family: 'STZhongsong', 'SimSun', serif;
+        }
+        
+        body {
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        
+        /* 侧边栏样式 */
+        .sidebar {
+            background-color: #fff0f0;
+            padding: 20px;
+            border-radius: 8px;
+            width: 250px;
+            min-height: 1000px;
+            flex-shrink: 0;
+        }
+        
+        /* 主内容区域 */
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* 轮播图+剧目表容器 */
+        .right-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        /* 轮播图样式 */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* 卡片样式 */
+        .musical-card {
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff5f5;
+            border-left: 5px solid #d23c3c;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        
+        .musical-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .musical-title {
+            color: #8c1a1a;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .theater-name {
+            color: #d23c3c;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 8px 0;
+        }
+        
+        /* 按钮样式 */
+        .custom-button {
+            background-color: #d23c3c;
+            color: white;
+            border-radius: 5px;
+            padding: 8px 16px;
+            border: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .custom-button:hover {
+            background-color: #991a1a;
+            color: white;
+        }
+        
+        /* 选项卡样式 */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #d23c3c;
+        }
+        
+        .tab.active {
+            color: #8c1a1a;
+            border-bottom: 3px solid #d23c3c;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        select {
+            width: 100%;
+            height: 40px;
+            font-size: 16px;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ffd0d0;
+            border-radius: 4px;
+        }
+        
+        /* 标题样式 */
+        h1 {
+            color: #8c1a1a;
+            border-bottom: 2px solid #d23c3c;
+            padding-bottom: 10px;
+        }
+        
+        /* 表单样式 */
+        input, textarea {
+            border: 1px solid #ffd0d0;
+            border-radius: 4px;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+        
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ffd0d0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ffd0d0;
+        }
+        
+        th {
+            background-color: #fff0f0;
+            color: #8c1a1a;
+        }
+        
+        /* 演员介绍卡片 */
+        .actor-card {
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f8f8f8;
+            border-left: 5px solid #8c1a1a;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        
+        .actor-name {
+            color: #8c1a1a;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .flex-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .flex-img {
+            flex: 0 0 200px;
+        }
+        
+        .flex-content {
+            flex: 1;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        /* 地图视图容器 */
+        .map-view-container {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+        }
+        
+        /* 地图样式 */
+        #map {
+            height: 500px;
+            flex-grow: 1;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        
+        /* 剧院列表样式 */
+        .theater-list-container {
+            width: 300px;
+            background-color: #fff0f0;
+            border-radius: 8px;
+            padding: 15px;
+            overflow-y: auto;
+            max-height: 500px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        
+        .theater-list-container h3 {
+            color: #8c1a1a;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #d23c3c;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        
+        .theater-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .theater-item {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background-color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-left: 4px solid #d23c3c;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .theater-item:hover {
+            background-color: #ffecec;
+            transform: translateX(5px);
+        }
+        
+        .theater-item.active {
+            background-color: #d23c3c;
+            color: white;
+        }
+        
+        .theater-item .theater-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .theater-item .performance-count {
+            font-size: 0.9em;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .theater-item.active .performance-count {
+            color: #ddd;
+        }
+        
+        /* 筛选按钮 */
+        .filter-button {
+            background-color: #d23c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        .filter-button:hover {
+            background-color: #991a1a;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                min-height: auto;
+            }
+            
+            .flex-container {
+                flex-direction: column;
+            }
+            
+            .flex-img {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+            
+            .map-view-container {
+                flex-direction: column;
+            }
+            
+            .theater-list-container {
+                width: 100%;
+                max-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>🎭 筛选条件</h2>
+            
+            <!-- 日期范围选择 -->
+            <label for="dateRange">选择日期范围</label>
+            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                <input type="date" id="startDate" style="flex: 1;">
+                <input type="date" id="endDate" style="flex: 1;">
+            </div>
+            
+            <!-- 剧院选择 -->
+            <label for="theaters">选择剧院</label>
+            <select id="theaters">
+                <option value="all" selected>全部剧院</option>
+                <option value="她剧场">她剧场</option>
+                <option value="十一楼哪个剧场">十一楼哪个剧场</option>
+                <option value="上海茉莉花剧场">上海茉莉花剧场</option>
+                <option value="北京保利剧院">北京保利剧院</option>
+                <option value="大世界">大世界</option>
+                <option value="墨剧场">墨剧场</option>
+            </select>
+            
+            <!-- 票价范围 -->
+            <label for="priceRanges">选择票价范围</label>
+            <select id="priceRanges">
+                <option value="all" selected>全部票价</option>
+                <option value="280-1280元">280-1280元</option>
+                <option value="180-1080元">180-1080元</option>
+                <option value="200-880元">200-880元</option>
+                <option value="380-1680元">380-1680元</option>
+                <option value="180-980元">180-980元</option>
+            </select>
+            
+            <!-- 排序方式 -->
+            <label for="sortBy">排序方式</label>
+            <select id="sortBy">
+                <option value="date_asc">演出日期(从早到晚)</option>
+                <option value="date_desc">演出日期(从晚到早)</option>
+                <option value="name_asc">剧目名称(A-Z)</option>
+                <option value="name_desc">剧目名称(Z-A)</option>
+                <option value="theater_asc">剧院名称(A-Z)</option>
+                <option value="theater_desc">剧院名称(Z-A)</option>
+            </select>
+            
+            <button class="filter-button" onclick="applyFilters()">应用筛选</button>
+            <button class="filter-button" onclick="resetFilters()" style="background-color: #666; margin-top: 5px;">重置筛选</button>
+            
+            <hr>
+            <p><strong>关于</strong></p>
+            <p>本应用提供张沁丹当月演出信息</p>
+        </div>
+
+        <div class="main-content">
+            <!-- 顶部轮播图 -->
+            <div class="carousel">
+                <div class="carousel-inner" id="carouselInner">
+                    <div class="carousel-item"><img src="https://i.imgur.com/KUOhkeq.jpeg" alt="张沁丹演出海报"></div>
+                    <div class="carousel-item"><img src="https://i.imgur.com/3KAIyAH.jpeg" alt="张沁丹演出海报"></div>
+                    <div class="carousel-item"><img src="https://i.imgur.com/VUZF7sX.jpeg" alt="张沁丹演出海报"></div>
+                    <div class="carousel-item"><img src="https://i.imgur.com/wy2k5Qv.jpeg" alt="张沁丹演出海报"></div>
+                </div>
+            </div>
+            
+            <h1>🥚张沁丹六月演什么戏？</h1>
+            <p>查看禽蛋🥚最新演出信息</p>
+            
+            <!-- 关于张沁丹 -->
+            <div class="actor-card">
+                <div class="actor-name">张沁丹</div>
+                <div class="flex-container">
+                    <div class="flex-img">
+                        <img src="https://i.imgur.com/LzIVhfL.jpeg" alt="张沁丹" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <div class="flex-content">
+                        <p><strong>职业：</strong>音乐剧演员</p>
+                        <p><strong>代表作品：</strong>《人间失格》《伪装者2022》《猎罪图鉴》《道林格雷的画像》</p>
+                        <p><strong>简介：</strong>张沁丹是中国新生代音乐剧演员，以其扎实的唱功和富有感染力的表演风格受到观众喜爱。毕业于上海音乐学院音乐剧系，曾出演多部经典音乐剧作品，塑造了多个令人印象深刻的角色形象。</p>
+                        <p><strong>演出特点：</strong>声音清澈透亮，表演细腻真实，擅长塑造复杂多面的女性角色。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-section">
+                <p><strong id="performanceCount">找到 6 场演出</strong></p>
+                
+                <!-- 选项卡 -->
+                <div class="tabs">
+                    <div class="tab active" onclick="switchTab('cardView')">卡片视图</div>
+                    <div class="tab" onclick="switchTab('tableView')">表格视图</div>
+                    <div class="tab" onclick="switchTab('mapView')">地图视图</div>
+                </div>
+                
+                <!-- 卡片视图 -->
+                <div id="cardView" class="tab-content active">
+                    <!-- 卡片将通过JavaScript动态生成 -->
+                </div>
+                
+                <!-- 表格视图 -->
+                <div id="tableView" class="tab-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>剧目名称</th>
+                                <th>演出日期</th>
+                                <th>演出时间</th>
+                                <th>剧院名称</th>
+                                <th>票价范围</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- 表格内容将通过JavaScript动态生成 -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- 地图视图 -->
+                <div id="mapView" class="tab-content">
+                    <h2>演出地点分布</h2>
+                    <div class="map-view-container">
+                        <div class="theater-list-container">
+                            <h3>🎭 剧院列表 🎭</h3>
+                            <ul class="theater-list" id="theaterList">
+                                <!-- 剧院列表将通过JavaScript动态生成 -->
+                            </ul>
+                        </div>
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 遗漏演出反馈 -->
+            <hr>
+            <h2>遗漏演出反馈</h2>
+            <form id="addPerformance">
+                <div class="flex-container">
+                    <div class="flex-content">
+                        <label for="title">剧目名称*</label>
+                        <input type="text" id="title" required>
+                        
+                        <label for="theater">剧院名称*</label>
+                        <input type="text" id="theater" required>
+                        
+                        <label for="date">演出日期*</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="flex-content">
+                        <label for="time">演出时间*</label>
+                        <input type="time" id="time" value="19:30" required>
+                        
+                        <label for="price">票价范围* (例如: 280-1280元)</label>
+                        <input type="text" id="price" required>
+                        
+                        <label for="link">购票链接</label>
+                        <input type="url" id="link">
+                    </div>
+                </div>
+                
+                <label for="description">剧目简介</label>
+                <textarea id="description" rows="4"></textarea>
+                
+                <label for="poster">海报图片URL</label>
+                <input type="url" id="poster">
+                
+                <button type="button" onclick="submitForm()" class="custom-button">提交反馈</button>
+            </form>
+            
+            <!-- 关于部分 -->
+            <hr>
+            <p><strong>关于这个应用</strong></p>
+            <ul>
+                <li>数据来源: 各大剧院官网</li>
+                <li>最后更新时间: <span id="updateDate"></span></li>
+                <li>开发者: 張沁丹的狗</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 引入Leaflet地图库JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <script>
+        // 演出数据
+        const performances = [
+            {
+                id: 1,
+                title: "连璧",
+                date: "2025-06-13",
+                time: "19:30",
+                theater: "她剧场",
+                price: "280-1280元",
+                description: "在桉城一手遮天的李氏家族中，人人纸醉金迷、争权夺利。集团千金李玉屏与第一秘书谢宛宁，针锋相对水火不容。曾是挚友的她们，为何会反目成仇？勾心斗角的名利场上，她们能否得偿所愿？深不见底的命运漩涡中，她们又是否能够看清自己的内心？揭开尘封的往事，走进金丝的牢笼，秘密与羁绊的舞台，拉开帷幕。",
+                poster: "https://i.imgur.com/So5kIsT.jpeg",
+                link: "https://mp.weixin.qq.com/s/TvkxIL5pU5s8Dv9tJz9sFg",
+                location: [121.481453, 31.242095] // 她剧场
+            },
+            {
+                id: 2,
+                title: "谨遵医嘱",
+                date: "2025-06-14",
+                time: "19:30",
+                theater: "十一楼哪个剧场",
+                price: "180-1080元",
+                description: "中年马拉松公益跑者马勤意外查出惠上阿尔兹海默症，生活急转而下，工作失利，家庭瓦解，他剩余的一半人生开始与倒退的记忆赛跑。他再度走访那些与自己生活相关的人，开启了一场独属自己的\"去伪存真\"，摆在他面前的，是人生的发令枪，拿起或放下，答案无人知晓..",
+                poster: "https://i.imgur.com/oe7bnsw.jpeg",
+                link: "https://mp.weixin.qq.com/s/VKNxD1aHzpBcgHOTD3kYSw",
+                location: [121.484589, 31.2399] // 十一楼哪个剧场
+            },
+            {
+                id: 3,
+                title: "TRACE U",
+                date: "2025-06-20",
+                time: "14:00",
+                theater: "上海茉莉花剧场",
+                price: "200-880元",
+                description: "在一家名为\"Debai\"的摇滚酒吧中，主唱启夏和吉他手庭宇因为热爱摇滚而单纯地活着。然而，一名神秘女子的出现打乱了他们原本简单的生活，启夏对女子执着的追逐引发了他和庭宇之间接二连三的争执。随着两人矛盾的逐渐加深，隐藏在时间和记忆深处的真相慢慢显现了出来……",
+                poster: "https://i.imgur.com/sxaHw9y.jpeg",
+                link: "https://mp.weixin.qq.com/s/yqfXa9SummO5tS75v2PkAA",
+                location: [121.484995, 31.236015] // 上海茉莉花剧场
+            },
+            {
+                id: 4,
+                title: "宝玉",
+                date: "2025-06-28",
+                time: "20:00",
+                theater: "北京保利剧院",
+                price: "380-1680元",
+                description: "音乐剧《宝玉》以《红楼梦》中\"宝玉\"的视角,重新解构和诠释这个故事。\"宝玉\"不仅指贾宝玉或通灵宝玉,更是一种身份与命运的象征。在戏中，宝玉是贾家的公子,也是天地间的顽石,他的命运似乎被提前写定。然而,这个少年在寻求自我答案的过程中,质疑预设的命运,感受并经历爱恨情仇,最终成为完整的\"宝玉\"。",
+                poster: "https://i.imgur.com/Giy1xkI.jpeg",
+                link: "https://mp.weixin.qq.com/s/5LfK_f-9I-tlgq3D-0kCDg",
+                location: [116.442332, 39.940532] // 北京保利剧院
+            },
+            {
+                id: 5,
+                title: "LIZZIE丽兹",
+                date: "2025-06-14",
+                time: "14:00",
+                theater: "大世界",
+                price: "280-1280元",
+                description: "1892年8月4日，一个闷热夏日的午后，美国马塞诸塞州的福尔里弗，吝啬的银行家 AndrewJackson Borden 和他的第二任妻子 Abby 惨死于家中，Borden 先生的二女儿 Lizzie Andrew Borden成为了头号嫌疑人。Lizzie 的审判引起了轰动，也将Borden 家的女仆 BridgetLizzie 的姐姐 Emma,和邻居 Alice 卷入其中。",
+                poster: "https://i.imgur.com/medYtwb.png",
+                link: "https://mp.weixin.qq.com/s/64sbDcQmHDirJzDPpvvhDA",
+                location: [121.485864, 31.234196] // 大世界
+            },
+            {
+                id: 6,
+                title: "疯子与赞美诗",
+                date: "2025-06-02",
+                time: "19:30",
+                theater: "墨剧场",
+                price: "180-980元",
+                description: "刚出狱的李默在陌生的环境中无法融入社会，身体的饥饿和内心的怯懦让他备受煎熬，他突然开始怀念监狱里强规则的生活，所以李默打算重回他的安全区——监狱。但当他故意\"犯罪\"的时候，却遇到了与他想法截然相反，为了追求包由和梦想，相对安全的医院里逃离的疯子。在疯子的\"哄骗\"下，二人结伴而行，不知不觉中，李默也学会了疯子\"精神胜利法\"这一套理论,并将其付诸实践。",
+                poster: "https://i.imgur.com/peYTYbc.jpeg",
+                link: "https://www.dahepiao.com/news1/yanchu/20231031428269.html",
+                location: [121.481453, 31.242095] // 墨剧场
+            }
+        ];
+
+        // 剧院位置信息
+        const theaterLocations = {
+            "她剧场": [121.481453, 31.242095],
+            "十一楼哪个剧场": [121.484589, 31.2399],
+            "上海茉莉花剧场": [121.484995, 31.236015],
+            "北京保利剧院": [116.442332, 39.940532],
+            "大世界": [121.485864, 31.234196],
+            "墨剧场": [121.481453, 31.242095]
+        };
+
+        // 地图和标记相关变量
+        let map;
+        let markers = {};
+        let activeTheater = null;
+
+        // 初始化地图
+        function initMap() {
+            // 创建地图，初始视图设置为中国中部
+            map = L.map('map').setView([35.8617, 104.1954], 5);
+            
+            // 添加OpenStreetMap底图
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // 添加演出地点标记
+            updateMapMarkers(performances);
+        }
+
+        // 更新地图标记
+        function updateMapMarkers(filteredPerformances) {
+            // 清除所有现有标记
+            if (markers) {
+                Object.values(markers).forEach(markerGroup => {
+                    markerGroup.clearLayers();
+                });
+            }
+            markers = {};
+            
+            // 按剧院分组演出
+            const performancesByTheater = {};
+            filteredPerformances.forEach(performance => {
+                if (!performancesByTheater[performance.theater]) {
+                    performancesByTheater[performance.theater] = [];
+                }
+                performancesByTheater[performance.theater].push(performance);
+            });
+            
+            // 为每个剧院创建标记组
+            Object.entries(performancesByTheater).forEach(([theater, theaterPerformances]) => {
+                const theaterLocation = theaterLocations[theater];
+                if (theaterLocation) {
+                    const markerGroup = L.layerGroup();
+                    
+                    // 创建自定义图标
+                    const theaterIcon = L.divIcon({
+                        className: 'theater-marker',
+                        html: `<div style="background-color: #d23c3c; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid white; box-shadow: 0 0 5px rgba(0,0,0,0.3);">${theaterPerformances.length}</div>`,
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    });
+                    
+                    // 添加主标记
+                    const marker = L.marker(theaterLocation, {
+                        icon: theaterIcon,
+                        title: theater
+                    }).addTo(markerGroup);
+                    
+                    // 绑定弹出窗口
+                    let popupContent = `<b style="color:#d23c3c">${theater}</b><hr style="margin:5px 0">`;
+                    theaterPerformances.forEach(p => {
+                        popupContent += `
+                            <div style="margin-bottom:8px;">
+                                <div><strong>${p.title}</strong></div>
+                                <div>${p.date} ${p.time}</div>
+                                <div>票价: ${p.price}</div>
+                                <a href="${p.link}" target="_blank" style="color:#d23c3c;font-size:0.9em;">购票信息</a>
+                            </div>
+                        `;
+                    });
+                    
+                    marker.bindPopup(popupContent, {
+                        maxWidth: 300,
+                        minWidth: 250
+                    });
+                    
+                    // 点击标记时高亮对应的剧院列表项
+                    marker.on('click', function() {
+                        highlightTheaterItem(theater);
+                    });
+                    
+                    // 保存标记组
+                    markers[theater] = markerGroup;
+                    markerGroup.addTo(map);
+                }
+            });
+            
+            // 渲染剧院列表
+            renderTheaterList(performancesByTheater);
+            
+            // 如果有标记，调整视图以显示所有标记
+            if (filteredPerformances.length > 0) {
+                const locations = Object.keys(performancesByTheater)
+                    .map(theater => theaterLocations[theater])
+                    .filter(Boolean);
+                
+                if (locations.length > 0) {
+                    const group = new L.featureGroup(locations);
+                    map.fitBounds(group.getBounds().pad(0.2));
+                }
+            }
+        }
+
+        // 渲染剧院列表
+        function renderTheaterList(performancesByTheater) {
+            const theaterList = document.getElementById('theaterList');
+            theaterList.innerHTML = '';
+            
+            // 为每个剧院创建列表项
+            Object.entries(performancesByTheater).forEach(([theater, theaterPerformances]) => {
+                const theaterItem = document.createElement('li');
+                theaterItem.className = 'theater-item';
+                theaterItem.dataset.theater = theater;
+                theaterItem.innerHTML = `
+                    <div class="theater-name">${theater}</div>
+                    <div class="performance-count">
+                        <span>${theaterPerformances.length}场演出</span>
+                        <span>${theaterPerformances[0].date}</span>
+                    </div>
+                `;
+                
+                theaterItem.addEventListener('click', () => {
+                    focusOnTheater(theater);
+                });
+                
+                theaterList.appendChild(theaterItem);
+            });
+        }
+
+        // 高亮剧院列表项
+        function highlightTheaterItem(theater) {
+            document.querySelectorAll('.theater-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.theater === theater) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // 聚焦到特定剧院
+        function focusOnTheater(theater) {
+            // 高亮选中的剧院
+            highlightTheaterItem(theater);
+            
+            // 定位到该剧院
+            const location = theaterLocations[theater];
+            if (location) {
+                map.setView(location, 15);
+                
+                // 打开该剧院的弹出窗口
+                if (markers[theater]) {
+                    markers[theater].eachLayer(layer => {
+                        if (layer instanceof L.Marker) {
+                            layer.openPopup();
+                        }
+                    });
+                }
+            }
+        }
+
+        // 渲染卡片视图
+        function renderCardView(performancesToRender) {
+            const cardView = document.getElementById('cardView');
+            cardView.innerHTML = '';
+            
+            if (performancesToRender.length === 0) {
+                cardView.innerHTML = '<div class="alert alert-warning">没有找到符合条件的演出</div>';
+                return;
+            }
+            
+            performancesToRender.forEach(performance => {
+                const card = document.createElement('div');
+                card.className = 'musical-card';
+                card.innerHTML = `
+                    <div class="flex-container">
+                        <div class="flex-content">
+                            <div class="musical-title">${performance.title}</div>
+                            <div><strong>演出时间:</strong> ${performance.date} ${performance.time}</div>
+                            <div class="theater-name">${performance.theater}</div>
+                            <div><strong>票价:</strong> ${performance.price}</div>
+                            <p style="margin: 10px 0;">${performance.description}</p>
+                            <a href="${performance.link}" target="_blank" class="custom-button">立即购票</a>
+                        </div>
+                        <div class="flex-img">
+                            <img src="${performance.poster}" alt="${performance.title}海报" style="width: 100%; border-radius: 5px;">
+                        </div>
+                    </div>
+                `;
+                cardView.appendChild(card);
+            });
+        }
+
+        // 渲染表格视图
+        function renderTableView(performancesToRender) {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = '';
+            
+            if (performancesToRender.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">没有找到符合条件的演出</td></tr>';
+                return;
+            }
+            
+            performancesToRender.forEach(performance => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${performance.title}</td>
+                    <td>${performance.date}</td>
+                    <td>${performance.time}</td>
+                    <td>${performance.theater}</td>
+                    <td>${performance.price}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 应用筛选条件
+        function applyFilters() {
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const theater = document.getElementById('theaters').value;
+            const priceRange = document.getElementById('priceRanges').value;
+            const sortBy = document.getElementById('sortBy').value;
+            
+            let filteredPerformances = [...performances];
+            
+            // 日期筛选
+            if (startDate) {
+                filteredPerformances = filteredPerformances.filter(p => p.date >= startDate);
+            }
+            if (endDate) {
+                filteredPerformances = filteredPerformances.filter(p => p.date <= endDate);
+            }
+            
+            // 剧院筛选
+            if (theater !== 'all') {
+                filteredPerformances = filteredPerformances.filter(p => p.theater === theater);
+            }
+            
+            // 票价筛选
+            if (priceRange !== 'all') {
+                filteredPerformances = filteredPerformances.filter(p => p.price === priceRange);
+            }
+            
+            // 排序
+            filteredPerformances.sort((a, b) => {
+                switch (sortBy) {
+                    case 'date_asc':
+                        return a.date.localeCompare(b.date) || a.time.localeCompare(b.time);
+                    case 'date_desc':
+                        return b.date.localeCompare(a.date) || b.time.localeCompare(a.time);
+                    case 'name_asc':
+                        return a.title.localeCompare(b.title);
+                    case 'name_desc':
+                        return b.title.localeCompare(a.title);
+                    case 'theater_asc':
+                        return a.theater.localeCompare(b.theater);
+                    case 'theater_desc':
+                        return b.theater.localeCompare(a.theater);
+                    default:
+                        return 0;
+                }
+            });
+            
+            // 更新计数
+            document.getElementById('performanceCount').textContent = `找到 ${filteredPerformances.length} 场演出`;
+            
+            // 重新渲染视图
+            renderCardView(filteredPerformances);
+            renderTableView(filteredPerformances);
+            
+            // 更新地图标记和剧院列表
+            if (document.getElementById('mapView').classList.contains('active')) {
+                if (!map) {
+                    initMap();
+                } else {
+                    updateMapMarkers(filteredPerformances);
+                }
+            }
+        }
+
+        // 重置筛选条件
+        function resetFilters() {
+            document.getElementById('startDate').value = '';
+            document.getElementById('endDate').value = '';
+            document.getElementById('theaters').value = 'all';
+            document.getElementById('priceRanges').value = 'all';
+            document.getElementById('sortBy').value = 'date_asc';
+            
+            applyFilters();
+        }
+
+        // 轮播图逻辑
+        let carouselPos = 0;
+        const carouselInner = document.getElementById('carouselInner');
+        const images = ['https://i.imgur.com/KUOhkeq.jpeg', 'https://i.imgur.com/3KAIyAH.jpeg', 'https://i.imgur.com/VUZF7sX.jpeg', 'https://i.imgur.com/wy2k5Qv.jpeg'];
+        
+        function rotateCarousel() {
+            carouselPos = (carouselPos + 100) % (images.length * 100);
+            carouselInner.style.transform = `translateX(-${carouselPos}%)`;
+            setTimeout(rotateCarousel, 3000);
+        }
+        
+        // 选项卡切换
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+            
+            // 如果切换到地图视图且地图未初始化，则初始化地图
+            if (tabId === 'mapView' && !map) {
+                initMap();
+            }
+        }
+        
+        // 表单提交
+        function submitForm() {
+            const requiredFields = ['title', 'theater', 'date', 'time', 'price'];
+            let isValid = true;
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value) {
+                    field.style.borderColor = 'red';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '#ffd0d0';
+                }
+            });
+            
+            if (isValid) {
+                // 创建新演出对象
+                const newPerformance = {
+                    id: performances.length + 1,
+                    title: document.getElementById('title').value,
+                    theater: document.getElementById('theater').value,
+                    date: document.getElementById('date').value,
+                    time: document.getElementById('time').value,
+                    price: document.getElementById('price').value,
+                    description: document.getElementById('description').value || '暂无简介',
+                    poster: document.getElementById('poster').value || 'https://via.placeholder.com/300x400?text=暂无海报',
+                    link: document.getElementById('link').value || '#',
+                    location: theaterLocations[document.getElementById('theater').value] || [35.8617, 104.1954]
+                };
+                
+                // 添加到演出数组
+                performances.push(newPerformance);
+                
+                // 更新剧院位置信息（如果新剧院不存在）
+                if (!theaterLocations[newPerformance.theater]) {
+                    theaterLocations[newPerformance.theater] = [35.8617, 104.1954]; // 默认中国中部
+                }
+                
+                // 重置表单
+                document.getElementById('addPerformance').reset();
+                
+                // 显示成功消息
+                const successMsg = document.createElement('div');
+                successMsg.className = 'alert alert-success';
+                successMsg.textContent = `已添加 "${newPerformance.title}" 的演出信息!`;
+                document.getElementById('addPerformance').appendChild(successMsg);
+                
+                // 更新筛选结果
+                applyFilters();
+                
+                // 3秒后移除消息
+                setTimeout(() => {
+                    successMsg.remove();
+                }, 3000);
+            } else {
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'alert alert-error';
+                errorMsg.textContent = '请填写所有必填字段(标有*)';
+                document.getElementById('addPerformance').appendChild(errorMsg);
+                
+                // 3秒后移除消息
+                setTimeout(() => {
+                    errorMsg.remove();
+                }, 3000);
+            }
+        }
+        
+        // 设置更新日期
+        document.getElementById('updateDate').textContent = new Date().toLocaleDateString('zh-CN', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        });
+        
+        // 初始化日期选择器
+        const today = new Date();
+        const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+        const lastDay = new Date(today.getFullYear(), today.getMonth() + 2, 0);
+        
+        document.getElementById('startDate').valueAsDate = today;
+        document.getElementById('endDate').valueAsDate = lastDay;
+        
+        // 初始化轮播图
+        setTimeout(rotateCarousel, 3000);
+        
+        // 初始渲染
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCardView(performances);
+            renderTableView(performances);
+            applyFilters();
+        });
+    </script>
+</body>
+</html>
